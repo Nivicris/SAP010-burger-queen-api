@@ -25,6 +25,8 @@ module.exports = (app, nextMain) => {
     }
 
     // TODO: autenticar a la usuarix
+    // const token = jwt.sign({ email: email }, secret, { expiresIn: '1h' });
+    // resp.status(200).json({ token: token });
     next();
   });
 
