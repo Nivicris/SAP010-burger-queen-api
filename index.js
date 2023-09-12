@@ -9,7 +9,7 @@ const pkg = require('./package.json');
 const { port, dbUrl, secret } = config;
 const app = express();
 
-const pgClient = new pg.Client({ connectionString: config.dbUrl });
+const pgClient = new pg.Client({ connectionString: dbUrl });
 pgClient.connect();
 pgClient.query('SELECT NOW()', (err, res) => {
   console.log(err, res);
