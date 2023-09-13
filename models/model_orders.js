@@ -23,7 +23,7 @@ const Order = sequelize.define('Order', {
   },
   date_processed: {
     type: DataTypes.TIMESTAMP,
-  }
+  },
 });
 
 Order.belongsTo(User, { foreignKey: 'user_id' });
