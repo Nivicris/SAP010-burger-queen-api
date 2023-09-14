@@ -2,12 +2,12 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
 const Product = sequelize.define('Product', {
-  product_id: {
+  productId: {
     type: DataTypes.UUID,
     primaryKey: true,
     allowNull: false,
   },
-  product_name: {
+  productName: {
     type: DataTypes.STRING(100),
     allowNull: false,
   },
@@ -18,7 +18,7 @@ const Product = sequelize.define('Product', {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  stock_quantity: {
+  stockQuantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -28,7 +28,7 @@ const Product = sequelize.define('Product', {
   qte: {
     type: DataTypes.INTEGER,
   },
-  date_Entry: {
+  dateEntry: {
     type: DataTypes.TIMESTAMP,
   },
 });
