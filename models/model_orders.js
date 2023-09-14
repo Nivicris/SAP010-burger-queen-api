@@ -4,29 +4,29 @@ const Product = require('./model_products');
 const User = require('./model_users');
 
 const Order = sequelize.define('Order', {
-  order_id: {
+  orderId: {
     type: DataTypes.UUID,
     primaryKey: true,
     allowNull: false,
   },
-  name_client: {
+  nameClient: {
     type: DataTypes.STRING(255),
   },
-  order_total: {
+  orderTotal: {
     type: DataTypes.DECIMAL(10, 2),
   },
   status: {
     type: DataTypes.STRING(20),
   },
-  date_entry: {
+  dateEntry: {
     type: DataTypes.TIMESTAMP,
   },
-  date_processed: {
+  dateProcessed: {
     type: DataTypes.TIMESTAMP,
   },
 });
 
-Order.belongsTo(User, { foreignKey: 'user_id' });
-Order.belongsTo(Product, { foreignKey: 'product_id' });
+Order.belongsTo(User, { foreignKey: 'userId' });
+Order.belongsTo(Product, { foreignKey: 'productId' });
 
 module.exports = Order;
