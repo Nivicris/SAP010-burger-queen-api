@@ -18,12 +18,12 @@ const Order = sequelize.define('Order', {
   status: {
     type: DataTypes.STRING(20),
   },
-  dateEntry: {
-    type: DataTypes.TIMESTAMP,
-  },
-  dateProcessed: {
-    type: DataTypes.TIMESTAMP,
-  },
+  // dateEntry: {
+  //   type: DataTypes.TIMESTAMP,
+  // },
+  // dateProcessed: {
+  //   type: DataTypes.TIMESTAMP,
+  // },
 });
 
 Order.belongsTo(User, { foreignKey: 'userId' });

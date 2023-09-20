@@ -28,9 +28,9 @@ const Product = sequelize.define('Product', {
   qte: {
     type: DataTypes.INTEGER,
   },
-  dateEntry: {
-    type: DataTypes.TIMESTAMP,
-  },
+  // dateEntry: {
+  //   type: DataTypes.TIMESTAMP,
+  // },
 });
 
 module.exports = Product;

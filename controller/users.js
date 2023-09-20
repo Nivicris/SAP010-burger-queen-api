@@ -25,21 +25,40 @@ const initAdminUser = (app, next) => {
 const createUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
+    console.log('Dados recebidos:', { username, email, password }); // Log dos dados recebidos
+
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
+      console.log('Usuário já existe:', existingUser.toJSON()); // Log do usuário existente
       return res.status(400).json({ message: 'Email já registrado' });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log('Senha criptografada:', hashedPassword); // Log da senha criptografada
+
     const newUser = await User.create({
       username,
       email,
       password: hashedPassword,
     });
 
+    console.log('Novo usuário criado:', newUser.toJSON()); // Log do novo usuário criado
+
     res.status(201).json({ user: newUser });
   } catch (error) {
     console.error('Erro ao criar usuário:', error);
     res.status(500).json({ message: 'Erro interno do servidor' });
+  }
+};
+
+// lista usuário
+const getUsers = async (req, resp, next) => {
+  try {
+    const users = await User.findAll();
+
+    return resp.json(users);
+  } catch (error) {
+    next({ status: 500, message: 'Erro interno do servidor.' });
   }
 };
 
@@ -113,6 +132,7 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   initAdminUser,
+  getUsers,
   createUser,
   getUserById,
   updateUser,
