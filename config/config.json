@@ -1,0 +1,38 @@
+{  
+    "development": {
+        "username": "postgres",
+        "password": "486486",
+        "database": "bqueen",
+        "host": "localhost",
+        "dialect": "postgres",
+        "secret": "esta-es-la-api-burger-queen",
+        "remoteUrl": "http://localhost:8080",
+        "adminEmail": "admin@api.com",
+        "adminPassword": "admin",
+        "port": 5433
+     },
+    "test": {
+        "username": "postgres",
+        "password": "486486",
+        "database": "bqueen-test",
+        "host": "localhost",
+        "dialect": "postgres",
+        "secret": "esta-es-la-api-burger-queen",
+        "remoteUrl": "http://localhost:8080",
+        "adminEmail": "admin@api.com",
+        "adminPassword": "admin",
+        "port": 5433
+    },
+    "production": {
+        "username": "postgres",
+        "password": "486486",
+        "database": "bqueen",
+        "host": "localhost",
+        "dialect": "postgres",
+        "secret": "esta-es-la-api-burger-queen",
+        "remoteUrl": "http://localhost:8080",
+        "adminEmail": "admin@api.com",
+        "adminPassword": "admin",
+        "port": 5433
+    }
+}

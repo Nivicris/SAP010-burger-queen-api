@@ -1,14 +1,16 @@
 const express = require('express');
 
 const router = express.Router();
-const usersController = require('../controller/users');
+const UsersController = require('../controller/users');
 const { requireAuth, requireAdmin } = require('../middleware/auth');
 
-// Rotas para manipulação de usuários, protegidas pela autenticação e autorização
-router.post('/users', usersController.createUser);
-router.get('/users/:userId', requireAuth, usersController.getUserById);
-router.get('/users', requireAdmin, usersController.getUsers);
-router.patch('/users/:userId', requireAdmin, usersController.updateUser);
-router.delete('/users/:userId', requireAdmin, usersController.deleteUser);
+module.exports = (app, nextMain) => {
+  router.get('/users', requireAdmin, UsersController.getUsers);
+  router.get('/users/:uid', requireAuth, UsersController.getUserById);
+  router.post('/users', requireAdmin, UsersController.createUser);
+  router.patch('/users/:uid', requireAdmin, UsersController.updateUser);
+  router.delete('/users/:uid', requireAdmin, UsersController.deleteUser);
+  app.use(router);
 
-module.exports = router;
+  return nextMain();
+};
